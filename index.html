@@ -1,12 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="icons/image.png">
-    <title>Sala Branca</title>
-</head>
-<body>
+<html lang="pt-br">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <meta name="theme-color" content="#050608">
+  <meta name="description" content="Projeto Sala Branca - painel de XP, missões e treinos.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="icons/image.png">
+  <title>Projeto Sala Branca</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="brand">
+        <img class="brand-mark" src="icons/kk2.png" alt="Logo do Projeto Sala Branca">
+        <div>
+          <p class="eyebrow">Painel de evolução</p>
+          <h1>Projeto Sala Branca</h1>
+          <p class="subtitle">Acompanhe suas missões e siga a rotina de treinos com uma interface mais limpa e forte.</p>
+        </div>
+      </div>
+    </header>
+
+    <nav class="tabs" aria-label="Seções do projeto">
+      <button class="tab is-active" type="button" data-target="home">Home</button>
+      <button class="tab" type="button" data-target="treinos">Treinos</button>
+      <button class="tab" type="button" data-target="progresso">Progresso</button>
+    </nav>
+
+    <main class="content">
+      <!-- HOME -->
+      <section id="home" class="panel">
+        <article class="card feature mission-home">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Missões do dia</p>
+              <h2>Escolha uma missão para começar</h2>
+            </div>
+            <span class="pill" id="nivelPill">Lv 1</span>
+          </div>
+          <div class="missions">
+            <button class="mission" type="button" data-xp="50" data-label="Treino completo">
+              <span>Treino completo</span>
+              <strong>+50 XP</strong>
+              <small>Faça seu treino principal com foco total.</small>
+              <span class="mission-action">Ir fazer →</span>
+            </button>
+            <button class="mission" type="button" data-xp="40" data-label="Disciplina">
+              <span>Disciplina</span>
+              <strong>+40 XP</strong>
+              <small>Cumpra sua rotina sem falhar.</small>
+              <span class="mission-action">Ir fazer →</span>
+            </button>
+            <button class="mission" type="button" data-xp="30" data-label="Leitura">
+              <span>Leitura</span>
+              <strong>+30 XP</strong>
+              <small>Avance no conhecimento diário.</small>
+              <span class="mission-action">Ir fazer →</span>
+            </button>
+            <button class="mission" type="button" data-xp="25" data-label="Controle emocional">
+              <span>Controle emocional</span>
+              <strong>+25 XP</strong>
+              <small>Mantenha foco e equilíbrio.</small>
+              <span class="mission-action">Ir fazer →</span>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <!-- TREINOS -->
+      <section id="treinos" class="panel hidden">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Treinos</p>
+            <h2>Divisão da semana</h2>
+          </div>
+          <p class="supporting">Uma rotina simples, objetiva e fácil de seguir.</p>
+        </div>
+
+        <article class="card mission-runner hidden" id="missionRunner" aria-live="polite">
+          <div>
+            <p class="section-kicker">Missão ativa</p>
+            <h3 id="activeMissionTitle">Nenhuma missão ativa</h3>
+            <p class="supporting" id="activeMissionDescription">Escolha uma missão na Home para ver o treino recomendado.</p>
+            <div class="mission-timer">
+              <span class="metric-label">Tempo restante</span>
+              <strong id="missionTimer">00:00</strong>
+              <small id="missionTimerState">Aguardando missão</small>
+            </div>
+            <div class="workout-callout">
+              <span class="metric-label">Treino recomendado</span>
+              <strong id="recommendedWorkoutTitle">-</strong>
+              <p id="recommendedWorkoutDescription">Selecione uma missão para ver o treino recomendado.</p>
+            </div>
+          </div>
+          <div class="mission-runner-actions">
+            <button class="ghost" type="button" id="startMission" disabled>Abrir treino</button>
+            <button class="ghost" type="button" id="completeMission" disabled>Concluir missão</button>
+          </div>
+        </article>
+
+        <div class="grid three-up">
+          <article class="card workout" id="workout-a">
+            <div class="workout-tag">Treino A</div>
+            <h3>Peitoral e tríceps</h3>
+            <ul>
+              <li>Crucifixo máquina 3x15</li>
+              <li>Supino reto halteres 3x12</li>
+              <li>Supino inclinado barra 3x12</li>
+              <li>Elevação lateral 3x10</li>
+              <li>Elevação frontal 3x10</li>
+              <li>Tríceps testa 3x12</li>
+              <li>Tríceps corda 3x12</li>
+              <li>Abdominal 3x15</li>
+              <li>Esteira 20 min</li>
+            </ul>
+          </article>
+          <article class="card workout" id="workout-b">
+            <div class="workout-tag">Treino B</div>
+            <h3>Costas e bíceps</h3>
+            <ul>
+              <li>Puxada barra 3x12</li>
+              <li>Remada articulada 3x15</li>
+              <li>Pulldown 3x12</li>
+              <li>Rosca direta 3x10</li>
+              <li>Rosca martelo 3x15</li>
+              <li>Rosca inversa 3x10</li>
+              <li>Panturrilha sentado 3x20</li>
+              <li>Esteira 20 min</li>
+            </ul>
+          </article>
+          <article class="card workout" id="workout-c">
+            <div class="workout-tag">Treino C</div>
+            <h3>Pernas e cardio</h3>
+            <ul>
+              <li>Agachamento cálice 3x20</li>
+              <li>Afundo 3x12</li>
+              <li>Cadeira extensora 3x15</li>
+              <li>Mesa flexora 3x15</li>
+              <li>Cadeira abdutora 3x15</li>
+              <li>Cadeira adutora 3x15</li>
+              <li>Bike 20 min</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROGRESSO -->
+      <section id="progresso" class="panel hidden">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Progresso</p>
+            <h2>Status do jogador</h2>
+          </div>
+        </div>
+
+        <div class="hero-metrics progress-metrics">
+          <article class="metric-card">
+            <span class="metric-label">XP atual</span>
+            <strong id="xp">0</strong>
+            <small id="xpResumo">0 de 50 XP para o próximo nível</small>
+          </article>
+          <article class="metric-card accent">
+            <span class="metric-label">Nível</span>
+            <strong id="nivel">Lv 1</strong>
+            <small id="statusNivel">Normal</small>
+          </article>
+        </div>
+
+        <div class="grid two-up">
+          <article class="card feature">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker">Resumo</p>
+                <h2>Ritmo de evolução</h2>
+              </div>
+            </div>
+            
+            <div class="progress-ring" aria-label="Progresso para o próximo nível"></div>
+            
+            <div class="progress-stats">
+              <strong id="progressPercent">0%</strong>
+              <span>até o próximo nível</span>
+            </div>
+            
+            <div class="progress-bar" aria-hidden="true">
+              <span id="progressFill" style="width: 0%"></span>
+            </div>
+            
+            <p class="supporting" id="progressText">Você está no começo. Faça a primeira missão para avançar.</p>
+          </article>
+
+          <div class="grid two-up">
+            <article class="card stat-block">
+              <span class="metric-label"> Faixa atual</span>
+              <h3 id="statusDetalhado">Normal</h3>
+              <p class="supporting">Use as missões para subir de nível e manter o foco.</p>
+            </article>
+            <article class="card stat-block">
+              <span class="metric-label"> Meta seguinte</span>
+              <h3 id="nextGoal">50 XP</h3>
+              <p class="supporting">Cada ciclo de 50 XP avança um nível novo.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
